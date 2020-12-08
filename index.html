@@ -27,7 +27,7 @@
     </header>
 
     <div class="main">
-        <form action="#" onsubmit="signUpForm()">
+        <form action="#" onsubmit="return signUpForm()">
             <table class="formSignup">
                 <tr>
                     <td>Name :</td>
@@ -71,6 +71,9 @@
         let arr = [];
 
         function signUpForm() {
+
+            // name.push() 
+
             let name = document.getElementById("names").value;
             localStorage.setItem("names", name);
             let email = document.getElementById("emails").value;
@@ -83,11 +86,17 @@
             localStorage.setItem("female", female);
             if (male === true) {
                 arr.push("Name :" + name, "Email :" + email, "Password :" + passwords, "Male :" + male);
+                alert("Sign Up successfully")
+                window.location.href = "signin.html";
+                // window.location.replace("./signin.html");
+                // window.open("signin.html")
             }
             else {
                 arr.push("Name :" + name, "Email :" + email, "Password :" + passwords, "Female :" + female);
             }
             // console.log(arr);
+
+            return false;
         }
     </script>
 
